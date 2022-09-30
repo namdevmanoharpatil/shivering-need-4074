@@ -4,9 +4,7 @@ public class Criminal {
 
 	private int Criminal_Id;
 	private String Criminal_Name;
-	private String Criminal_NickName;
 	private String Arrest_Date;
-	private String DateOfCrime;
 	private String Criminal_Address;
 	private String Place_Crime;
 	private int Age;
@@ -15,6 +13,7 @@ public class Criminal {
 	private String BirthMark;
 	private String CrimeType;
 	private String CrimeDetails;
+	private String Crime_Status;
 
 	public int getCriminal_Id() {
 		return Criminal_Id;
@@ -32,28 +31,12 @@ public class Criminal {
 		Criminal_Name = criminal_Name;
 	}
 
-	public String getCriminal_NickName() {
-		return Criminal_NickName;
-	}
-
-	public void setCriminal_NickName(String criminal_NickName) {
-		Criminal_NickName = criminal_NickName;
-	}
-
 	public String getArrest_Date() {
 		return Arrest_Date;
 	}
 
 	public void setArrest_Date(String arrest_Date) {
 		Arrest_Date = arrest_Date;
-	}
-
-	public String getDateOfCrime() {
-		return DateOfCrime;
-	}
-
-	public void setDateOfCrime(String dateOfCrime) {
-		DateOfCrime = dateOfCrime;
 	}
 
 	public String getCriminal_Address() {
@@ -120,24 +103,37 @@ public class Criminal {
 		CrimeDetails = crimeDetails;
 	}
 
-	@Override
-	public String toString() {
-		return "**********Criminal***********   \nCriminal_Id   =  " +         Criminal_Id + ", \nCriminal_Name   =   " +        Criminal_Name + ", \nCriminal_NickName   =   "
-				+     Criminal_NickName + ", \nArrest_Date   =   " +     Arrest_Date + ", \nDateOfCrime   =   " +     DateOfCrime
-				+ ", \nCriminal_Address   =   " +    Criminal_Address + ",\nPlace_Crime   =   " +    Place_Crime + ", \nAge   =   " +    Age
-				+ ", \nGender   =   " +    Gender + ", \nOccupation   =   " +     Occupation + ",\n BirthMark   =   " +     BirthMark + ", \nCrimeType   =   "
-				+    CrimeType + ", \nCrimeDetails   =   " +    CrimeDetails +" ";
+	public String getCrime_Status() {
+		return Crime_Status;
 	}
 
-	public Criminal(int criminal_Id, String criminal_Name, String criminal_NickName, String arrest_Date,
-			String dateOfCrime, String criminal_Address, String place_Crime, int age, String gender, String occupation,
-			String birthMark, String crimeType, String crimeDetails) {
+	public void setCrime_Status(String crime_Status) {
+		Crime_Status = crime_Status;
+	}
+
+	@Override
+	public String toString() {
+		return "  $$$$$$$$$$$$$$$               Criminal               $$$$$$$$$$$$$$$$$"
+				+ "\n===================================================================="				
+				+ "\n  Criminal_Id  =  " +   Criminal_Id + ", \n  Criminal_Name  =  " + Criminal_Name + ", \n  Arrest_Date  =  "
+				+ Arrest_Date + ", \n  Criminal_Address  =  " + Criminal_Address + ", \n  Place_Crime  =  " + Place_Crime + ", Age=  "
+				+ Age + ",\n   Gender  =  " + Gender + ", \n  Occupation  =  " + Occupation + ",\n   BirthMark  =  " + BirthMark
+				+ ", \n  CrimeType  =  " + CrimeType + ", \n  CrimeDetails  =  " + CrimeDetails + ",\n Crime_Status  = " + Crime_Status
+				+ "";
+	}
+
+	public Criminal() {
+		super();
+		
+	}
+
+	public Criminal(int criminal_Id, String criminal_Name, String arrest_Date, String criminal_Address,
+			String place_Crime, int age, String gender, String occupation, String birthMark, String crimeType,
+			String crimeDetails, String crime_Status) {
 		super();
 		Criminal_Id = criminal_Id;
 		Criminal_Name = criminal_Name;
-		Criminal_NickName = criminal_NickName;
 		Arrest_Date = arrest_Date;
-		DateOfCrime = dateOfCrime;
 		Criminal_Address = criminal_Address;
 		Place_Crime = place_Crime;
 		Age = age;
@@ -146,11 +142,7 @@ public class Criminal {
 		BirthMark = birthMark;
 		CrimeType = crimeType;
 		CrimeDetails = crimeDetails;
-	}
-
-	public Criminal() {
-		super();
-		
+		Crime_Status = crime_Status;
 	}
 
 }

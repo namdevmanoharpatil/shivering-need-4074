@@ -51,8 +51,10 @@ public class CriminalDTO {
 
 	@Override
 	public String toString() {
-		return "***********CriminalDTO************* \nCriminal_Id=" + Criminal_Id + ", \nCriminal_Name=" + Criminal_Name + ",\n Criminal_Address="
-				+ Criminal_Address + ", \nPoliceStation_Name=" + PoliceStation_Name + ", \nPoliceStation_Area="
+		return "     $$$$$$$$$$$$$$$$    Criminal By Area Of Police Station    $$$$$$$$$$$$$$ "
+				+ "\n========================================================================="
+				+ "\n   Criminal_Id    =" + Criminal_Id + ", \n   Criminal_Name    =" + Criminal_Name + ",\n   Criminal_Address   ="
+				+ Criminal_Address + ", \n    PoliceStation_Name   =" + PoliceStation_Name + ", \n   PoliceStation_Area    ="
 				+ PoliceStation_Area + "";
 	}
 

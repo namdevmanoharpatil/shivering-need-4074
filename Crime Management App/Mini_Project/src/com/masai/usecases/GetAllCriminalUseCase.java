@@ -23,6 +23,7 @@ public class GetAllCriminalUseCase {
 				System.out.println("Criminal Crime Place: " + Crime.getPlace_Crime());
 				System.out.println("Criminal Age: " + Crime.getAge());
 				System.out.println("Criminal Crime Type: " + Crime.getCrimeType());
+				System.out.println("Criminal Crime Status: " + Crime.getCrime_Status());
 
 				System.out.println("===============================================");
 			});
