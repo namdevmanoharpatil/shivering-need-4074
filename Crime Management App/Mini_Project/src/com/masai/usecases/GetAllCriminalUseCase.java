@@ -1,7 +1,6 @@
 package com.masai.usecases;
 
 import java.util.List;
-
 import com.masai.bean.Criminal;
 import com.masai.dao.CriminalDao;
 import com.masai.dao.CriminalDaoImpl;

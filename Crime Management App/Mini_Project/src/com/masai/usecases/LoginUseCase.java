@@ -3,6 +3,7 @@ package com.masai.usecases;
 import java.util.Scanner;
 
 import com.masai.bean.Criminal;
+import com.masai.bean.PoliceOfficer;
 import com.masai.dao.CriminalDao;
 import com.masai.dao.CriminalDaoImpl;
 import com.masai.exceptions.CriminalException;
@@ -19,6 +20,7 @@ public class LoginUseCase {
 		System.out.println("Enter Password:");
 		String pass = sc.next();
 
+		// CriminalDao dao = new CriminalDaoImpl();
 		CriminalDao dao = new CriminalDaoImpl();
 
 		try {

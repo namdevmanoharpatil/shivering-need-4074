@@ -122,11 +122,11 @@ public class Criminal {
 
 	@Override
 	public String toString() {
-		return "Criminal [Criminal_Id=" + Criminal_Id + ", Criminal_Name=" + Criminal_Name + ", Criminal_NickName="
-				+ Criminal_NickName + ", Arrest_Date=" + Arrest_Date + ", DateOfCrime=" + DateOfCrime
-				+ ", Criminal_Address=" + Criminal_Address + ", Place_Crime=" + Place_Crime + ", Age=" + Age
-				+ ", Gender=" + Gender + ", Occupation=" + Occupation + ", BirthMark=" + BirthMark + ", CrimeType="
-				+ CrimeType + ", CrimeDetails=" + CrimeDetails + "]";
+		return "**********Criminal***********   \nCriminal_Id   =  " +         Criminal_Id + ", \nCriminal_Name   =   " +        Criminal_Name + ", \nCriminal_NickName   =   "
+				+     Criminal_NickName + ", \nArrest_Date   =   " +     Arrest_Date + ", \nDateOfCrime   =   " +     DateOfCrime
+				+ ", \nCriminal_Address   =   " +    Criminal_Address + ",\nPlace_Crime   =   " +    Place_Crime + ", \nAge   =   " +    Age
+				+ ", \nGender   =   " +    Gender + ", \nOccupation   =   " +     Occupation + ",\n BirthMark   =   " +     BirthMark + ", \nCrimeType   =   "
+				+    CrimeType + ", \nCrimeDetails   =   " +    CrimeDetails +" ";
 	}
 
 	public Criminal(int criminal_Id, String criminal_Name, String criminal_NickName, String arrest_Date,

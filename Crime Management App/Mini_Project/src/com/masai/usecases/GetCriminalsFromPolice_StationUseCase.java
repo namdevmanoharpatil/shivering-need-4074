@@ -12,14 +12,14 @@ public class GetCriminalsFromPolice_StationUseCase {
 
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("Enter the Police Station Name :");
+		System.out.println("Enter the Police Station Area :");
 
-		String Poname = sc.next();
+		String Station_Area = sc.nextLine();
 
 		CriminalDao dao = new CriminalDaoImpl();
 
 		try {
-			List<CriminalDTO> dtos = dao.getAllCriminalsByPolice_Station_name(Poname);
+			List<CriminalDTO> dtos = dao.getAllCriminalsByPolice_Station_name(Station_Area);
 
 			dtos.forEach(dto -> System.out.println(dto));
 

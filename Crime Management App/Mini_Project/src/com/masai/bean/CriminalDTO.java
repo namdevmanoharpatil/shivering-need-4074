@@ -51,9 +51,9 @@ public class CriminalDTO {
 
 	@Override
 	public String toString() {
-		return "CriminalDTO [Criminal_Id=" + Criminal_Id + ", Criminal_Name=" + Criminal_Name + ", Criminal_Address="
-				+ Criminal_Address + ", PoliceStation_Name=" + PoliceStation_Name + ", PoliceStation_Area="
-				+ PoliceStation_Area + "]";
+		return "***********CriminalDTO************* \nCriminal_Id=" + Criminal_Id + ", \nCriminal_Name=" + Criminal_Name + ",\n Criminal_Address="
+				+ Criminal_Address + ", \nPoliceStation_Name=" + PoliceStation_Name + ", \nPoliceStation_Area="
+				+ PoliceStation_Area + "";
 	}
 
 	public CriminalDTO(int criminal_Id, String criminal_Name, String criminal_Address, String policeStation_Name,

@@ -309,9 +309,7 @@ public class CriminalDaoImpl implements CriminalDao {
 		try (Connection conn = DBUtil.provideConnection()) {
 
 			PreparedStatement ps = conn.prepareStatement(
-					"select c.Criminal_Id, c.Criminal_Name,c.Criminal_Address, p.PoliceStation_Name, p.PoliceStation_Area "
-							+ "from  Criminal c INNER JOIN Police_Station p INNER JOIN PoliceStation_Criminal pc "
-							+ "ON c.Criminal_Id = pc.Criminal_Id AND p.StationId = pc.StationId AND p.PoliceStation_Area= ?");
+					"select c.Criminal_Id, c.Criminal_Name,c.Criminal_Address, p.PoliceStation_Name, p.PoliceStation_Area from  Criminal c INNER JOIN Police_Station p INNER JOIN PoliceStation_Criminal pc ON c.Criminal_Id = pc.CriminalId AND p.StationId = pc.StationId AND p.PoliceStation_Area= ?");
 
 			ps.setString(1, PoliceStation_Area);
 
@@ -340,6 +338,36 @@ public class CriminalDaoImpl implements CriminalDao {
 
 		return dtos;
 
+	}
+
+	@Override
+	public List<Criminal> DeleteCriminalFromRegister(int Criminal_Id) throws CriminalException {
+		List<Criminal> ccdd = new ArrayList<>();
+
+		try (Connection conn = DBUtil.provideConnection()) {
+
+			PreparedStatement ps = conn.prepareStatement("delete from Criminal where Criminal_Id = ?");
+
+			ps.setInt(1, Criminal_Id);
+
+			int x = ps.executeUpdate();
+
+			if (x > 0)
+				System.out.println(x + " Record deleted Sucessfully");
+			else
+				System.out.println("Record does not exist.");
+
+		} catch (SQLException e) {
+			throw new CriminalException(e.getMessage());
+		}
+
+		return ccdd;
+	}
+
+	@Override
+	public boolean PoliceOfficer(String username, String password) {
+		
+		return true;
 	}
 
 }

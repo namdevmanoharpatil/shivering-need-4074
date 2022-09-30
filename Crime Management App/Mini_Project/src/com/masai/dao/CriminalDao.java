@@ -28,4 +28,8 @@ public interface CriminalDao {
 	public List<CriminalDTO> getAllCriminalsByPolice_Station_name(String PoliceStation_Area)
 			throws Police_StationException;
 
+	public List<Criminal> DeleteCriminalFromRegister(int Criminal_Id) throws CriminalException;
+
+	public boolean PoliceOfficer(String username, String password);
+
 }
