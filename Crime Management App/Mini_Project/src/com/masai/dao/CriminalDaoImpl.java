@@ -137,36 +137,28 @@ public class CriminalDaoImpl implements CriminalDao {
 	}
 
 	@Override
-	public Criminal loginCriminal(String Criminal_Name, String CrimeType) throws CriminalException {
+	public com.masai.bean.PoliceOfficer loginOfficer(String Username, String password) throws CriminalException {
 
-		Criminal criminal = null;
+		com.masai.bean.PoliceOfficer policeofficer = null;
 
 		try (Connection conn = DBUtil.provideConnection()) {
 
 			PreparedStatement ps = conn
-					.prepareStatement("select * from Criminal where Criminal_Name = ? AND CrimeType = ?");
+					.prepareStatement("select * from PoliceOfficer where Username = ? AND password = ?");
 
-			ps.setString(1, Criminal_Name);
-			ps.setString(2, CrimeType);
+			ps.setString(1, Username);
+			ps.setString(2, password);
 
 			ResultSet rs = ps.executeQuery();
 
 			if (rs.next()) {
 
-				int id = rs.getInt("Criminal_Id");
-				String na = rs.getString("Criminal_Name");
-				String p1 = rs.getString("Arrest_Date");
-				String p2 = rs.getString("Criminal_Address");
-				String p3 = rs.getString("Place_Crime");
-				int age = rs.getInt("Age");
-				String p4 = rs.getString("Gender");
-				String p5 = rs.getString("Occupation");
-				String p6 = rs.getString("birthMark");
-				String p7 = rs.getString("crimeType");
-				String p8 = rs.getString("crimeDetails");
-				String p9 = rs.getString("crime_Status");
+				String na = rs.getString("Username");
+				String p1 = rs.getString("Password");
+				int age = rs.getInt("StationId");
+				String p2 = rs.getString("PoliceStation_Area");
 
-				criminal = new Criminal(id, na, p1, p2, p3, age, p4, p5, p6, p7, p8, p9);
+				policeofficer = new com.masai.bean.PoliceOfficer(na, p1, age, p2);
 
 			} else
 				throw new CriminalException("Invalid Username or password.. ");
@@ -175,7 +167,7 @@ public class CriminalDaoImpl implements CriminalDao {
 			throw new CriminalException(e.getMessage());
 		}
 
-		return criminal;
+		return policeofficer;
 
 	}
 
@@ -462,7 +454,7 @@ public class CriminalDaoImpl implements CriminalDao {
 	}
 
 	@Override
-	public String GetNumberOfCases_solved() throws  Exception {
+	public String GetNumberOfCases_solved() throws Exception {
 		ResultSet rs;
 		List<String> dtos3 = new ArrayList<>();
 		try (Connection conn = DBUtil.provideConnection()) {
@@ -491,7 +483,7 @@ public class CriminalDaoImpl implements CriminalDao {
 
 	@Override
 	public String GetNumberOfCases_Month() throws CriminalException, Exception {
-	
+
 		ResultSet rs;
 		List<String> dtos3 = new ArrayList<>();
 		try (Connection conn = DBUtil.provideConnection()) {
@@ -517,7 +509,5 @@ public class CriminalDaoImpl implements CriminalDao {
 
 		return dtos3.toString();
 	}
-
-	
 
 }

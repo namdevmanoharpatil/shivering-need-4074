@@ -24,9 +24,10 @@ public class LoginUseCase {
 		CriminalDao dao = new CriminalDaoImpl();
 
 		try {
-			Criminal criminal = dao.loginCriminal(uname, pass);
+			PoliceOfficer officer = dao.loginOfficer(uname, pass);
 
-			System.out.println("Welcome Officer :" + criminal.getCriminal_Name());
+			System.out.println("@@  Welcome Officer @@:" + "\n" +"     Station ID    :   "+ officer.getStationId() + "\n" +"     Username      :   "+ officer.getUsername()
+					+ "\n" +"     Station Area  :   "+ officer.getPoliceStation_Area());
 
 		} catch (CriminalException e) {
 			System.out.println(e.getMessage());

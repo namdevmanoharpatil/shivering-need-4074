@@ -3,7 +3,7 @@ package All_SQL_Operations;
 public class SQL {
 /*
 
- Enter password: ****
+Enter password: ****
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 209
 Server version: 8.0.30 MySQL Community Server - GPL
@@ -533,6 +533,200 @@ mysql> SELECT DateOfCrime, COUNT(Crime_status)Total_Cases_In_Current_Month FROM 
 2 rows in set (0.00 sec)
 
 mysql> SELECT DateOfCrime, COUNT(Crime_status)Total_Cases_In_Current_Month FROM Crime GROUP BY DateOfCrime HAVING DateOfCrime>='2022-08-31';
+
+
+
+
+mysql> create table PoliceOfficer(
+    -> Username varchar(45),
+    -> Password varchar(45)
+    -> );
+ERROR 1046 (3D000): No database selected
+mysql> show databases;
++-------------------------+
+| Database                |
++-------------------------+
+| crime_management_system |
+| information_schema      |
+| mysql                   |
+| performance_schema      |
+| student_inforamtion     |
++-------------------------+
+5 rows in set (0.08 sec)
+
+mysql> use crime_management_system;
+Database changed
+mysql> create table PoliceOfficer(
+    -> Username varchar(45),
+    -> Password varchar(45)
+    -> );
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> desc policeofficer;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| Username | varchar(45) | YES  |     | NULL    |       |
+| Password | varchar(45) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+2 rows in set (0.04 sec)
+
+mysql> drop policeofficer;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'policeofficer' at line 1
+mysql> drop table policeofficer;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create table PoliceOfficer(
+    ->
+    -> Username varchar(45),
+    -> Password varchar(45),
+    -> StationId int,
+    -> PoliceStation_Area varchar(45)
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into PoliceOfficer values(Namdevpatilm@gamil.com,827515,1,'West Mumbai');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@gamil.com,827515,1,'West Mumbai')' at line 1
+mysql> insert into PoliceOfficer values('Namdevpatilm@gamil.com',827515,1,'West Mumbai');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into PoliceOfficer values('Makndar@gamil.com',727515,2,'East Mumbai');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into PoliceOfficer values('Sardar@gamil.com',627515,2,'Central Mumbai');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into PoliceOfficer values('Gajaan@gamil.com',527515,3,'South Mumbai');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into PoliceOfficer values('Chaugule@gamil.com',427515,4,' Bangalore');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from policeofficer;
++------------------------+----------+-----------+--------------------+
+| Username               | Password | StationId | PoliceStation_Area |
++------------------------+----------+-----------+--------------------+
+| Namdevpatilm@gamil.com | 827515   |         1 | West Mumbai        |
+| Makndar@gamil.com      | 727515   |         2 | East Mumbai        |
+| Sardar@gamil.com       | 627515   |         2 | Central Mumbai     |
+| Gajaan@gamil.com       | 527515   |         3 | South Mumbai       |
+| Chaugule@gamil.com     | 427515   |         4 |  Bangalore         |
++------------------------+----------+-----------+--------------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from Criminal;
++-------------+---------------+-------------+------------------+-------------+------+--------+-----------------+--------------+-----------+----------------+--------------+
+| Criminal_Id | Criminal_Name | Arrest_Date | Criminal_Address | Place_Crime | Age  | Gender | Occupation      | BirthMark    | CrimeType | CrimeDetails   | Crime_status |
++-------------+---------------+-------------+------------------+-------------+------+--------+-----------------+--------------+-----------+----------------+--------------+
+|           1 | Ramesh        | 2021-05-15  | Delhi            | Mumbai      |   25 | Male   | Painter         | Face-Scratch | Robbery   | Money-Heist    | Unsolved     |
+|           2 | Elizabeth     | 2022-08-25  | England          | Bangalore   |   24 | Female | Turist          | Face-SCARS   | Teft      | Painting-Theft | Unsolved     |
+|           3 | Suresh        | 2020-09-12  | Karnataka        | Mumbai      |   54 | Male   | Don-Buisnessman | Tatto        | Homicide  | Full-Murder    | Unsolved     |
+|           4 | Anthony       | 2020-02-01  | Bihar            | Thane       |   26 | Male   | Teacher         | DoubleFinger | Homicide  | Half           | Unsolved     |
+|           5 | Akash         | 2021-05-13  | Sonpur           | Nagpur      |   32 | Male   | Farmer          | EyeDamage    | Theft     | Money          | Unsolved     |
+|           6 | Gajanan       | 2015-06-18  | Jodhpur          | Mumbai      |   23 | Male   | Student         | Head_Scratch | Theft     | Money          | Unsolved     |
+|           7 | Raghav        | 2018-05-18  | Nagpur           | Rayagad     |   33 | Male   | Carpenter       | Baldness     | Sharper   | Sharper,Thung  | Unsolved     |
+|           9 | Subhash       | 2022-08-26  | 2020-08-22       | Nagpur      |   29 | Male   | Painter         | Tatto        | Homicide  | Unsolved       | NULL         |
+|          10 | Mahesh        | 2022-10-01  | Madavale         | Belgaum     |   31 | Male   | Chemist         | BlackColor   | Theft     | Unsolved       | NULL         |
++-------------+---------------+-------------+------------------+-------------+------+--------+-----------------+--------------+-----------+----------------+--------------+
+9 rows in set (0.01 sec)
+
+mysql> select * from Crime;
++-----------+----------------+---------------+--------------+-------------+-------------+--------------+
+| CrimeType | CrimeDetails   | Suspects_Name | Victims_Name | DateOfCrime | Place_Crime | Crime_status |
++-----------+----------------+---------------+--------------+-------------+-------------+--------------+
+| Robbery   | Money-Heist    | Mukesh        | Inamdar      | 2020-05-16  | Mumbai      | Solved       |
+| Theft     | Painting-Theft | Elizabeth     | MM Musium    | 2022-08-25  | Rayagad     | Unsolved     |
+| Homicide  | Full-Murder    | Suresh        | Irrappa      | 2020-05-16  | Mumbai      | Unsolved     |
+| Homicide  | Half-Murder    | Suresh        | Marappa      | 2019-05-28  | Bangalore   | Unsolved     |
+| Theft     | Money-Heist    | suman         | sardar       | 2018-05-28  | Karnataka   | Solved       |
+| Theft     | Money-Heist    | Zamin         | Simran       | 2019-05-28  | Mumbai      | Unsolved     |
+| Sharper   | Shrper,Thung   | Zuber         | Sitaram      | 2021-09-22  | Nagpur      | Unsolved     |
+| Homicide  | Killing        | Soman         | Aman         | 2022-09-22  | Mumbai      | Solved       |
+| Theft     | Money-Heist    | Soman         | Susu         | 2022-09-15  | Rayagad     | Solved       |
++-----------+----------------+---------------+--------------+-------------+-------------+--------------+
+9 rows in set (0.01 sec)
+
+mysql> select * from Policestation_Criminal;
++-----------+------------+
+| StationId | CriminalId |
++-----------+------------+
+|         1 |          1 |
+|         3 |          3 |
+|         3 |          1 |
+|         2 |          2 |
+|         4 |          3 |
+|         2 |          2 |
+|         3 |          3 |
++-----------+------------+
+7 rows in set (0.01 sec)
+
+mysql> select * from Policestation;
+ERROR 1146 (42S02): Table 'crime_management_system.policestation' doesn't exist
+mysql> select * from Police_Station;
++-----------+----------------------------+------------------------+
+| StationId | PoliceStation_Name         | PoliceStation_Area     |
++-----------+----------------------------+------------------------+
+|         1 | Andheri Police Station     | West Mumbai            |
+|         2 | VV Puram Police Station    | East of Bangalore city |
+|         3 | Azad Maidan Police Station | South Mumbai           |
+|         4 | D B Marg Police Station    | West Mumbai            |
++-----------+----------------------------+------------------------+
+4 rows in set (0.01 sec)
+
+mysql> insert into policestation_Criminal values(1,10);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into policestation_Criminal values(1,7);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into policestation_Criminal values(1,9);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into policestation_Criminal values(2,4);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into policestation_Criminal values(2,5);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> update Criminal set Crime_status = 'Unsolved' where Criminal_Name = 'Subhash';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Criminal set Crime_status = 'Unsolved' where Criminal_Name = 'Mahesh';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from Criminal;
++-------------+---------------+-------------+------------------+-------------+------+--------+-----------------+--------------+-----------+----------------+--------------+
+| Criminal_Id | Criminal_Name | Arrest_Date | Criminal_Address | Place_Crime | Age  | Gender | Occupation      | BirthMark    | CrimeType | CrimeDetails   | Crime_status |
++-------------+---------------+-------------+------------------+-------------+------+--------+-----------------+--------------+-----------+----------------+--------------+
+|           1 | Ramesh        | 2021-05-15  | Delhi            | Mumbai      |   25 | Male   | Painter         | Face-Scratch | Robbery   | Money-Heist    | Unsolved     |
+|           2 | Elizabeth     | 2022-08-25  | England          | Bangalore   |   24 | Female | Turist          | Face-SCARS   | Teft      | Painting-Theft | Unsolved     |
+|           3 | Suresh        | 2020-09-12  | Karnataka        | Mumbai      |   54 | Male   | Don-Buisnessman | Tatto        | Homicide  | Full-Murder    | Unsolved     |
+|           4 | Anthony       | 2020-02-01  | Bihar            | Thane       |   26 | Male   | Teacher         | DoubleFinger | Homicide  | Half           | Unsolved     |
+|           5 | Akash         | 2021-05-13  | Sonpur           | Nagpur      |   32 | Male   | Farmer          | EyeDamage    | Theft     | Money          | Unsolved     |
+|           6 | Gajanan       | 2015-06-18  | Jodhpur          | Mumbai      |   23 | Male   | Student         | Head_Scratch | Theft     | Money          | Unsolved     |
+|           7 | Raghav        | 2018-05-18  | Nagpur           | Rayagad     |   33 | Male   | Carpenter       | Baldness     | Sharper   | Sharper,Thung  | Unsolved     |
+|           9 | Subhash       | 2022-08-26  | 2020-08-22       | Nagpur      |   29 | Male   | Painter         | Tatto        | Homicide  | Unsolved       | Unsolved     |
+|          10 | Mahesh        | 2022-10-01  | Madavale         | Belgaum     |   31 | Male   | Chemist         | BlackColor   | Theft     | Unsolved       | Unsolved     |
++-------------+---------------+-------------+------------------+-------------+------+--------+-----------------+--------------+-----------+----------------+--------------+
+9 rows in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
  
  */
 }
