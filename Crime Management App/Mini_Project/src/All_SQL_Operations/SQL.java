@@ -715,17 +715,6 @@ mysql> select * from Criminal;
 mysql>
 
 
-
-
-
-
-
-
-
-
-
-
- 
  
  
  */
