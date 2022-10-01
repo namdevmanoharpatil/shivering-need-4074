@@ -119,7 +119,8 @@ public class Criminal {
 				+ Arrest_Date + ", \n  Criminal_Address  =  " + Criminal_Address + ", \n  Place_Crime  =  " + Place_Crime + ", Age=  "
 				+ Age + ",\n   Gender  =  " + Gender + ", \n  Occupation  =  " + Occupation + ",\n   BirthMark  =  " + BirthMark
 				+ ", \n  CrimeType  =  " + CrimeType + ", \n  CrimeDetails  =  " + CrimeDetails + ",\n Crime_Status  = " + Crime_Status
-				+ "";
+				+ "\n=========================================================================";
+		
 	}
 
 	public Criminal() {

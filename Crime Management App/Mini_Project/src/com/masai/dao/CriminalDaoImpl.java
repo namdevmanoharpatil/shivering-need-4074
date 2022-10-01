@@ -8,10 +8,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.masai.bean.CrimeDTO;
 import com.masai.bean.Criminal;
 import com.masai.bean.CriminalDTO;
 import com.masai.bean.Police_Station;
 import com.masai.bean.SuspectsDTO;
+import com.masai.bean.VictimsDTO;
 import com.masai.exceptions.Police_StationException;
 import com.masai.exceptions.CriminalException;
 import com.masai.utility.DBUtil;
@@ -26,7 +28,7 @@ public class CriminalDaoImpl implements CriminalDao {
 		try (Connection conn = DBUtil.provideConnection()) {
 
 			PreparedStatement ps = conn.prepareStatement(
-					"insert into Criminal(Criminal_Name, Arrest_Date, Criminal_Address, Place_Crime, Age, Gender, Occupation, BirthMark, CrimeType, CrimeDetails, Crime_Status) values(?,?,?,?,?,?,?,?,?,?,?,?)");
+					"insert into Criminal(Criminal_Name, Arrest_Date, Criminal_Address, Place_Crime, Age, Gender, Occupation, BirthMark, CrimeType, CrimeDetails, Crime_Status) values(?,?,?,?,?,?,?,?,?,?,?)");
 
 			ps.setString(1, criminal.getCriminal_Name());
 
@@ -384,7 +386,7 @@ public class CriminalDaoImpl implements CriminalDao {
 
 	@Override
 	public List<SuspectsDTO> getSuspectsfromCrimeRegister(String Suspects_Name) throws Police_StationException {
-		
+
 		List<SuspectsDTO> dtos1 = new ArrayList<>();
 
 		try (Connection conn = DBUtil.provideConnection()) {
@@ -416,9 +418,106 @@ public class CriminalDaoImpl implements CriminalDao {
 		}
 
 		if (dtos1.isEmpty())
-			throw new Police_StationException("No Criminal found in that Police Staion ");
+			throw new Police_StationException("No Suspects found in that Police Staion ");
 
 		return dtos1;
 	}
+
+	@Override
+	public List<VictimsDTO> getVictimsfromCrimeRegister(String Victims_Name) throws Police_StationException {
+		List<VictimsDTO> dtos2 = new ArrayList<>();
+
+		try (Connection conn = DBUtil.provideConnection()) {
+
+			PreparedStatement ps = conn.prepareStatement("select * from Crime where Victims_Name=?");
+
+			ps.setString(1, Victims_Name);
+
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+
+				String c1 = rs.getString("CrimeType");
+				String na = rs.getString("CrimeDetails");
+				String p1 = rs.getString("Suspects_Name");
+				String p2 = rs.getString("Victims_Name");
+				String p3 = rs.getString("DateOfCrime");
+				String p4 = rs.getString("Place_Crime");
+				String p5 = rs.getString("Crime_status");
+
+				VictimsDTO dto1 = new VictimsDTO(c1, na, p1, p2, p3, p4, p5);
+
+				dtos2.add(dto1);
+
+			}
+
+		} catch (SQLException e) {
+			throw new Police_StationException(e.getMessage());
+		}
+
+		if (dtos2.isEmpty())
+			throw new Police_StationException("No Victims found in that Police Staion ");
+
+		return dtos2;
+	}
+
+	@Override
+	public String GetNumberOfCases_solved() throws  Exception {
+		ResultSet rs;
+		List<String> dtos3 = new ArrayList<>();
+		try (Connection conn = DBUtil.provideConnection()) {
+
+			PreparedStatement ps = conn.prepareStatement(
+					"SELECT Crime_status, COUNT(Crime_status) FROM Crime GROUP BY Crime_status HAVING COUNT('Solved');");
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+
+				String na = rs.getString("Crime_status");
+				String p1 = rs.getString("COUNT(Crime_status)");
+
+				dtos3.add(na);
+				dtos3.add(p1);
+
+			}
+
+		} catch (SQLException e) {
+			throw new Police_StationException(e.getMessage());
+		}
+
+		return dtos3.toString();
+	}
+
+	@Override
+	public String GetNumberOfCases_Month() throws CriminalException, Exception {
+	
+		ResultSet rs;
+		List<String> dtos3 = new ArrayList<>();
+		try (Connection conn = DBUtil.provideConnection()) {
+
+			PreparedStatement ps = conn.prepareStatement(
+					"SELECT DateOfCrime, COUNT(Crime_status)Total_Cases_In_Current_Month FROM Crime GROUP BY DateOfCrime HAVING DateOfCrime>='2022-08-31';");
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+
+				String na = rs.getString("DateOfCrime");
+				String p1 = rs.getString("Total_Cases_In_Current_Month");
+
+				dtos3.add(na);
+				dtos3.add(p1);
+
+			}
+
+		} catch (SQLException e) {
+			throw new Police_StationException(e.getMessage());
+		}
+
+		return dtos3.toString();
+	}
+
+	
 
 }

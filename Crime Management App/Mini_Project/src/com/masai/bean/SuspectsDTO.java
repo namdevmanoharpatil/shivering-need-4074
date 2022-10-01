@@ -58,7 +58,8 @@ public class SuspectsDTO {
 				+"\n============================================================================" 
 				+ "\n   CrimeType   =  " + CrimeType + ", \n   CrimeDetails    =  " + CrimeDetails + ",\n  Suspects_Name  = "
 				+ Suspects_Name + ",\n   Victims_Name  = " + Victims_Name + ",\n  DateOfCrime  = " + DateOfCrime + ",\n  Place_Crime ="
-				+ Place_Crime + ",\n  Crime_status  =" + Crime_status + "";
+				+ Place_Crime + ",\n  Crime_status  =" + Crime_status + 
+				"\n=========================================================================";
 	}
 	public SuspectsDTO() {
 		super();

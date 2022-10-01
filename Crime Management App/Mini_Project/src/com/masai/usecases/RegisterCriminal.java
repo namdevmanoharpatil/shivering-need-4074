@@ -48,7 +48,7 @@ public class RegisterCriminal {
 		System.out.println("Enter Criminal Crime Details:");
 		String CrimeDetails = sc.next();
 		
-		System.out.println("Enter Criminal Crime Details:");
+		System.out.println("Enter Criminal Crime Status:");
 		String Crime_Status = sc.next();
 		
 		CriminalDao dao = new CriminalDaoImpl();
@@ -85,3 +85,18 @@ public class RegisterCriminal {
 	}
 
 }
+
+/*
+ mysql> select * from Criminal ;
++-------------+---------------+-------------+------------------+-------------+------+--------+-----------------+--------------+-----------+----------------+--------------+
+| Criminal_Id | Criminal_Name | Arrest_Date | Criminal_Address | Place_Crime | Age  | Gender | Occupation      | BirthMark    | CrimeType | CrimeDetails   | Crime_status |
++-------------+---------------+-------------+------------------+-------------+------+--------+-----------------+--------------+-----------+----------------+--------------+
+|           1 | Ramesh        | 2021-05-15  | Delhi            | Mumbai      |   25 | Male   | Painter         | Face-Scratch | Robbery   | Money-Heist    | Unsolved     |
+|           2 | Elizabeth     | 2022-08-25  | England          | Bangalore   |   24 | Female | Turist          | Face-SCARS   | Teft      | Painting-Theft | Unsolved     |
+|           3 | Suresh        | 2020-09-12  | Karnataka        | Mumbai      |   54 | Male   | Don-Buisnessman | Tatto        | Homicide  | Full-Murder    | Unsolved     |
+|           4 | Anthony       | 2020-02-01  | Bihar            | Thane       |   26 | Male   | Teacher         | DoubleFinger | Homicide  | Half           | Unsolved     |
+|           5 | Akash         | 2021-05-13  | Sonpur           | Nagpur      |   32 | Male   | Farmer          | EyeDamage    | Theft     | Money          | Unsolved     |
+|           6 | Gajanan       | 2015-06-18  | Jodhpur          | Mumbai      |   23 | Male   | Student         | Head_Scratch | Theft     | Money          | Unsolved     |
+|           7 | Raghav        | 2018-05-18  | Nagpur           | Rayagad     |   33 | Male   | Carpenter       | Baldness     | Sharper   | Sharper,Thung  | Unsolved     |
++-------------+---------------+-------------+------------------+-------------+------+--------+-----------------+--------------+-----------+----------------+--------------+ 
+ */

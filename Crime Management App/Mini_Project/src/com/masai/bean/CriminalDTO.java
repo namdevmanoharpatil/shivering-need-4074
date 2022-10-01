@@ -55,7 +55,8 @@ public class CriminalDTO {
 				+ "\n========================================================================="
 				+ "\n   Criminal_Id    =" + Criminal_Id + ", \n   Criminal_Name    =" + Criminal_Name + ",\n   Criminal_Address   ="
 				+ Criminal_Address + ", \n    PoliceStation_Name   =" + PoliceStation_Name + ", \n   PoliceStation_Area    ="
-				+ PoliceStation_Area + "";
+				+ PoliceStation_Area + 
+				"\n=========================================================================";
 	}
 
 	public CriminalDTO(int criminal_Id, String criminal_Name, String criminal_Address, String policeStation_Name,

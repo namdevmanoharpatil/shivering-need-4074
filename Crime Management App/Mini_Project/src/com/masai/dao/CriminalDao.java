@@ -2,16 +2,17 @@ package com.masai.dao;
 
 import java.util.List;
 
+import com.masai.bean.CrimeDTO;
 import com.masai.bean.Criminal;
 import com.masai.bean.CriminalDTO;
 import com.masai.bean.Police_Station;
 import com.masai.bean.SuspectsDTO;
+import com.masai.bean.VictimsDTO;
 import com.masai.exceptions.Police_StationException;
 import com.masai.exceptions.CriminalException;
 
 public interface CriminalDao {
 
-//	public String registerStudent(String name, int marks, String email, String passwrod);
 
 	public String registerCriminal(Criminal criminal); // REgister the Criminal
 
@@ -22,6 +23,8 @@ public interface CriminalDao {
 	public Criminal getCriminalByCrimeType(String CrimeType, String Arrest_Date) throws CriminalException;
 	
 	public List<SuspectsDTO> getSuspectsfromCrimeRegister(String Suspects_Name) throws Police_StationException;
+	
+	public List<VictimsDTO> getVictimsfromCrimeRegister(String Victims_Name) throws Police_StationException;
 	
 	public Criminal loginCriminal(String username, String password) throws CriminalException; // Login Criminal
 
@@ -38,4 +41,8 @@ public interface CriminalDao {
 
 	public boolean PoliceOfficer(String username, String password); // Login of Officer ;
 
+	public String GetNumberOfCases_solved() throws  Exception;
+
+	public String GetNumberOfCases_Month() throws CriminalException, Exception;
+	
 }
