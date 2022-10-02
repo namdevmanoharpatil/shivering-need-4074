@@ -8,10 +8,10 @@ This can allow a person to enter or delete the records if necessary. All these r
 
 ## Software Configuration
 * Backend database: MYSQL (Crime_Management_System)
-* Server side Scripting: STS
-* Web Server: JDBC
+* Java Application: STS(IDE)
+* Web Server: SQL Server
 
-## System Architecture
+## System Information : 
 <img src="https://i.ytimg.com/vi/HPGGrjYAuFA/sddefault.jpg" width="90%">
 
 The architecture consists of a centralized database, which will be accessed by one type of user, ie. Polise Offiecer View and Update the criminal data and adds the related Suspects, victims. They can view and update their details. Apart from that, any activity done will be logged in the logs database which is out of the system.
