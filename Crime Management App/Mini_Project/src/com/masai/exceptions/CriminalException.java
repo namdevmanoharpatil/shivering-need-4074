@@ -9,6 +9,5 @@ public class CriminalException extends Exception{
 	public CriminalException(String message) {
 		super(message);
 	}
-	
 
 }

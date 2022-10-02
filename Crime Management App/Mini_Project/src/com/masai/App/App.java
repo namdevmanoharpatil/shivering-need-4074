@@ -31,38 +31,22 @@ public class App {
 			                
 			Scanner in = new Scanner(System.in);
 
-//			System.out.println("Enter UserName");
-//			String username = in.next();
-//
-//			System.out.println("Enter Password");
-
-//			String password = in.next();
-//			CriminalDao edao = new CriminalDaoImpl();
-//
-//			if (edao.PoliceOfficer(username, password)) {
-//				System.out.println("   Sucessfully Logged-In  : " + username);
-//				System.out.println("   Please Select Queries which you want to Apply ");
-//
-//			} else {
-//
-//				System.out.println("Please Check Credentials");
-//			}
 
 			while (true) {
 
 				System.out.println(" "
-						+"  \n   1. Please Log In Officer : "
-						+ " \n   2. View All Criminals Data  : "
-						+ " \n   3. Please enter Criminal Id to search to Criminal data : "
-						+ " \n   4. Please enter For Update of Criminal data  : "
-						+ " \n   5. Show all Criminals Details from Crime Types OR Crime Date : "
-						+ " \n   6. Information of all Criminals get from Police station Area : "
-						+ " \n   7. Information of Victims : " + " \n   8. Information of Main Suspects : "
-						+ " \n   9. Please enter Criminal Id to Delete  : "
-						+ " \n  10. Number of Solved and Unsolved crime   : "
-						+ " \n  11. Number of Crimes recorded in the Current Month." + " \n  12. Exit the App");
+						+"  \n Press  1. Please Log In Officer : "
+						+ " \n Press  2. View All Criminals Data  : "
+						+ " \n Press  3. Please enter Criminal Id to search to Criminal data : "
+						+ " \n Press  4. Please enter For Update of Criminal data  : "
+						+ " \n Press  5. Show all Criminals Details from Crime Types OR Crime Date : "
+						+ " \n Press  6. Information of all Criminals get from Police station Area : "
+						+ " \n Press  7. Information of Victims : " + " \n Press  8. Information of Main Suspects : "
+						+ " \n Press  9. Please enter Criminal Id to Delete  : "
+						+ " \n Press 10. Number of Solved and Unsolved crime   : "
+						+ " \n Press 11. Number of Crimes recorded in the Current Month." + " \n Press 12. Exit the App");
 
-				System.out.println("===================================================================");
+				System.out.println("==========================================================================");
 				int choice = in.nextInt();
 				switch (choice) {
 				
@@ -149,29 +133,7 @@ public class App {
 /*
                           *****Welcome to Crime Management System Application*****
 ==================================================================================================================
-   
-   1. Please Log In Officer :  
-   2. View All Criminals Data  :  
-   3. Please enter Criminal Id to search to Criminal data :  
-   4. Please enter For Update of Criminal data  :  
-   5. Show all Criminals Details from Crime Types OR Crime Date :  
-   6. Information of all Criminals get from Police station Area :  
-   7. Information of Victims :  
-   8. Information of Main Suspects :  
-   9. Please enter Criminal Id to Delete  :  
-  10. Number of Solved and Unsolved crime   :  
-  11. Number of Crimes recorded in the Current Month. 
-  12. Exit the App
-===================================================================
-1
-                               Please Login as Assistant Police Inspector  
-                            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-Enter Username:
-namdev
-Enter Password:
-1234
-Invalid Username or password.. 
-   
+ 
    1. Please Log In Officer :  
    2. View All Criminals Data  :  
    3. Please enter Criminal Id to search to Criminal data :  
@@ -303,7 +265,7 @@ Enter Criminal ID :
   Occupation  =  Teacher,
    BirthMark  =  DoubleFinger, 
   CrimeType  =  Homicide, 
-  CrimeDetails  =  Half,
+  CrimeDetails  =  Half-Murder,
  Crime_Status  = Unsolved
 =========================================================================
    

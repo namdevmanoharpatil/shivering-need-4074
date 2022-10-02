@@ -20,7 +20,7 @@ public class DBUtil {
 		String url = "jdbc:mysql://localhost:3306/Crime_management_System";
 
 		try {
-			conn = DriverManager.getConnection(url, "root", "8275"); // dbname , mysqlaccname, mysqlpass
+			conn = DriverManager.getConnection(url, "root", "8275"); // dbname , mysqlusername, mysqlpass
 		} catch (SQLException e) {
 
 			e.printStackTrace();
