@@ -303,14 +303,15 @@ public class CriminalDaoImpl implements CriminalDao {
 	}
 
 	@Override
-	public List<Criminal> DeleteCriminalFromRegister(int Criminal_Id) throws CriminalException {
+	public List<Criminal> DeleteCriminalFromRegister(int CriminalId, int StationId) throws CriminalException {
 		List<Criminal> ccdd = new ArrayList<>();
 
 		try (Connection conn = DBUtil.provideConnection()) {
 
-			PreparedStatement ps = conn.prepareStatement("delete from Criminal where Criminal_Id = ?");
+			PreparedStatement ps = conn.prepareStatement("delete from policestation_criminal where CriminalId = ? AND StationId = ?");
 
-			ps.setInt(1, Criminal_Id);
+			ps.setInt(1, CriminalId);
+			ps.setInt(2, StationId);
 
 			int x = ps.executeUpdate();
 

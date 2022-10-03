@@ -14,12 +14,16 @@ public class DeleteCriminalFromRegister {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("Enter Criminal ID :");
-		int Criminal_Id = sc.nextInt();
+		int CriminalId = sc.nextInt();
+		
+		System.out.println("Enter Station ID :");
+		int StationId = sc.nextInt();
+		
 
 		CriminalDao dao = new CriminalDaoImpl();
 
 		try {
-			List<Criminal> criminal = dao.DeleteCriminalFromRegister(Criminal_Id);
+			List<Criminal> criminal = dao.DeleteCriminalFromRegister(CriminalId,StationId);
 
 			System.out.println(criminal);
 

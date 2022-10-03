@@ -36,7 +36,7 @@ public interface CriminalDao {
 																								// station name;
 			throws Police_StationException;
 
-	public List<Criminal> DeleteCriminalFromRegister(int Criminal_Id) throws CriminalException; // Delete criminal;
+	public List<Criminal> DeleteCriminalFromRegister(int CriminalId,int StationId) throws CriminalException; // Delete criminal;
 
 	public boolean PoliceOfficer(String username, String password); // Login of Officer ;
 

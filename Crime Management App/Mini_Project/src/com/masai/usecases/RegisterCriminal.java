@@ -39,7 +39,7 @@ public class RegisterCriminal {
 		System.out.println("Enter Criminal Occupation:");
 		String Occupation = sc.next();
 
-		System.out.println("Enter Criminal Birth Mark:");
+		System.out.println("Enter Criminal Birth Mark:");  //Identification Mark
 		String BirthMark = sc.next();
 
 		System.out.println("Enter Criminal Crime Type:");
@@ -77,7 +77,7 @@ public class RegisterCriminal {
 		
 		criminal.setCrimeDetails(CrimeDetails);
 		
-		criminal.setCrimeDetails(Crime_Status); //add the column
+		criminal.setCrime_Status(Crime_Status); //add the column
 
 		String result = dao.registerCriminal(criminal);
 
